@@ -5,7 +5,7 @@ contract DisplayMessage {
 
 function myMessage() public pure returns (string memory) 
 {
-    return "Hello World";
+    return "First Smart Contract";
 }
 
 }
