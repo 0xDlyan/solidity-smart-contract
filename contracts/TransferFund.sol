@@ -18,7 +18,7 @@ struct Balance {
     mapping(uint => Payment) payments;
 }
 
-// Array that will store the value tranfered by a specific address    
+// Array structure to track how much money the user has sent including the amont and time of each of his transactions   
     mapping(address => Balance) public balanceReceived;
 
 // Function that will be called during the smart contract deployment
