@@ -37,15 +37,16 @@ function withdrawAllFund (address payable _toAddress) public
     require (_active == true, "The contract is curently paused");
     //_toAddress.transfer(address(this).balance);
 
-    // We retrieve how much the person who interect with the smart contract have previously send.
+    // Retrieve how much the user had previously send.
     uint balanceToSend = balanceReceived[msg.sender];
-    // We reset his balance and send him all his funds
+    // Reset user current balance and send him all his funds
     balanceReceived[msg.sender] = 0;
     _toAddress.transfer(balanceToSend);
 }
 
 // This function will allow the user to withdraw a specific amont of his deposited funds
 function withdrawMoney(address payable _toAddress, uint _amont) public {
+   // Check available fund to withdraw
    require(_amont <= balanceReceived[msg.sender],"Not enough funds");
    balanceReceived[msg.sender] -= _amont;
    _toAddress.transfer(_amont);
